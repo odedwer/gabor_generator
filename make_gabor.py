@@ -67,7 +67,8 @@ def parse_args():
     parser = argparse.ArgumentParser(description='Process Gabor patch parameters')
     parser.add_argument('--frequency', '-f', type=float, help='The frequency of the Gabor patch', required=True)
     parser.add_argument('--orientation', '-o', metavar='N', nargs='+', type=float,
-                        help='The orientation of the Gabor patch (in degrees)\nIf list, generates all orientations',
+                        help='The orientation of the Gabor patch (in degrees)\nIf list, generates all orientations.\n'
+                             'If you wish to generate X patches with uniform orientations between orientation o1 and orientation o2, enter o1 and o2 and specify --num_orientations=X',
                         required=True)
     parser.add_argument('--envelope', '-e', type=str,
                         help='The envelope of the Gabor patch. Must be one of the following:\n'
@@ -82,7 +83,7 @@ def parse_args():
     parser.add_argument('--std', type=float, help='The standard deviation of the Gabor patch image (in pixels)',
                         default=20)
     parser.add_argument('--num_orientations', type=int,
-                        help='The standard deviation of the Gabor patch image (in pixels)',
+                        help='The number of orientations to create between the first and second orientations provided (inclusive)',
                         required=False, default=0)
     args = parser.parse_args()
     return list(vars(args).values())
