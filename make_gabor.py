@@ -34,7 +34,7 @@ def save_gabor_patch_image(frequency, orientation, envelope, size, phase, bg_col
     im_rgb_vals = (c1 * amp[:, :, None]) + (c2 * (1 - amp[:, :, None]))
     im_rgb_vals = (im_rgb_vals * f[:, :, None]) + (bg_color * (1 - f[:, :, None]))
     im = Image.fromarray((im_rgb_vals * 255).astype('uint8'), 'RGB')
-    im.save(f"gabor_o{orientation:.2g}_env{envelope}_freq{frequency}.png")
+    im.save(f"gabor_o{orientation:g}_env{envelope}_freq{frequency}.png")
 
 
 def generate_gabor_patch(envelope, frequency, orientation, phase, size, std):
